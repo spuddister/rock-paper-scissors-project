@@ -1,51 +1,38 @@
+let roundResult;
+let scorePlayer = 0;
+let scoreComp = 0;
+let resultDiv = document.getElementById('result');
+let scoreBoard = document.getElementById('score')
 
-game();
+let rockBtn = document.getElementById('rock-btn').addEventListener('click', game);
+let paperBtn = document.getElementById('paper-btn').addEventListener('click', game);
+let scissorsBtn = document.getElementById('scissors-btn').addEventListener('click', game);
 
-function game() {
-    let playerSelection, computerSelection, result, winner;
-    let scorePlayer = 0;
-    let scoreComp = 0;
-    for (i = 0; i < 5; i++) {
-        playerSelection = capitalize(window.prompt("Game " + (i+1) + ": Enter Rock, Paper, or Scissors:"));
-        computerSelection = computerPlay();
-        result = playRound(playerSelection, computerSelection)
+function game(e) {
+    let playerSelection = e.target.title;
+    let computerSelection = computerPlay();
+    roundResult = playRound(playerSelection, computerSelection);
 
-        if (result == 1) {
-            scorePlayer += 1;
-            console.log("Game " + (i+1) + ": You win! " + playerSelection + " beats " + computerSelection);
-        } else if (result == 0) {
-            scoreComp += 1;
-            console.log("Game " + (i+1) + ": You lose! " + computerSelection + " beats " + playerSelection);
-        } else {
-            console.log("Game " + (i+1) + ": It's a tie! Both chose " + playerSelection);
-        } 
-    }
-    if (scorePlayer > scoreComp) {
-        winner = "The Player";
-        result = scorePlayer
-    } else if (scorePlayer == scoreComp) {
-        winner = "tie"
-        result = scorePlayer
+    if (roundResult == 1) {
+        scorePlayer += 1;
+        resultDiv.textContent ="You win!\n" + playerSelection + " beats " + computerSelection;
+    } else if (roundResult == 0) {
+        scoreComp += 1;
+        resultDiv.textContent ="You lose! " + computerSelection + " beats " + playerSelection;
     } else {
-        winner = "The Computer"
-        result = scoreComp;
-    }
-
-    if (winner == "tie") {
-        console.log("No one wins! Tie game.")
-    } else {
-        console.log(winner + " wins! They won " + result + "/5 games.")
-    }
+        resultDiv.textContent ="It's a tie! Both chose " + playerSelection;
+    } 
+    scoreBoard.textContent = scorePlayer + ' - ' + scoreComp
 }
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random()*3);
     if (randomNum == 2) {
-        return "Rock"
+        return "rock"
     } else if (randomNum == 1) {
-        return "Paper"
+        return "paper"
     } else if (randomNum == 0) {
-        return "Scissors"
+        return "scissors"
     } else {
         console.log("Error within computerPlay function.")
     }
@@ -60,7 +47,7 @@ function capitalize(para){
 }
 
 function playRound(playerSelection, computerSelection) {
-    if ((playerSelection == "Rock" && computerSelection == "Scissors") || (playerSelection == "Paper" && computerSelection == "Rock") || (playerSelection == "Scissors" && computerSelection == "Paper")) {
+    if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
         return 1;
     } else if (playerSelection == computerSelection) {
         return null;

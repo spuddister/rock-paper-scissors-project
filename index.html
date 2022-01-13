@@ -5,11 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="rps.js" defer></script>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>Use the console to play 5 rounds of rock paper scissors with the computer.</p>
-    <p><strong>Press f12 to view the console output and follow along.</strong></p>
-    <script src="rps.js"></script>
+    <div class="gameCard">
+        <h1 class="gameHeader">Rock Paper Scissors</h1>
+        <div class="btnContainer">
+            <h3>Choose your weapon...</h3>
+            <button id="rock-btn" title="rock">Rock</button>
+            <button id="paper-btn" title="paper">Paper</button>
+            <button id="scissors-btn" title="scissors">Scissors</button>
+        </div>
+        <br>
+        <div class="scoreboard">
+            <h2>Score</h2>
+            <div id="score">0 - 0</div>
+            <div id="result"></div>
+        </div>
+    </div>
 </body>
 </html>
