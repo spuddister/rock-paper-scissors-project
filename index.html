@@ -5,23 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="rps.js" defer></script>
 </head>
 <body>
-    <div class="gameCard">
+    <div class="header">
         <h1 class="gameHeader">Rock Paper Scissors</h1>
-        <div class="btnContainer">
-            <h3>Choose your weapon...</h3>
-            <button id="rock-btn" title="rock">Rock</button>
-            <button id="paper-btn" title="paper">Paper</button>
-            <button id="scissors-btn" title="scissors">Scissors</button>
+    </div>
+    <div class="scoreboardCard">
+        <h2>Score</h2>
+        <div class="individualScoreboards">
+            <div class="scorecard">
+                <p>You</p>
+                <p id="playerScore">0</p>
+            </div>
+            <div class="scorecard">
+                <p>Computer</p>
+                <p id="compScore">0</p>
+            </div>
         </div>
-        <br>
-        <div class="scoreboard">
-            <h2>Score</h2>
-            <div id="score">0 - 0</div>
-            <div id="result"></div>
+        <p id="result"></p>
+    </div>
+    <div class="gameCard">
+        <div class="weapons">
+            <h3>Choose your weapon...</h3>
+            <div class="btnContainer">
+                <img src="img/rock.jpg" id="rock-btn" title="rock">
+                <img src="img/paper.jpg" id="paper-btn" title="paper">
+                <img src="img/scissors.jpg" id="scissors-btn" title="scissors">
+            </div>
         </div>
     </div>
+    <footer>Copyright</footer>
 </body>
 </html>

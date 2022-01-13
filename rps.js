@@ -1,8 +1,9 @@
 let roundResult;
-let scorePlayer = 0;
-let scoreComp = 0;
+// let scorePlayer = 0;
+// let scoreComp = 0;
 let resultDiv = document.getElementById('result');
-let scoreBoard = document.getElementById('score')
+let playerScore = document.getElementById('playerScore')
+let compScore = document.getElementById('compScore')
 
 let rockBtn = document.getElementById('rock-btn').addEventListener('click', game);
 let paperBtn = document.getElementById('paper-btn').addEventListener('click', game);
@@ -14,15 +15,18 @@ function game(e) {
     roundResult = playRound(playerSelection, computerSelection);
 
     if (roundResult == 1) {
-        scorePlayer += 1;
+        playerScore.textContent -= -1;
         resultDiv.textContent ="You win!\n" + playerSelection + " beats " + computerSelection;
     } else if (roundResult == 0) {
-        scoreComp += 1;
+        compScore.textContent -= -1;
         resultDiv.textContent ="You lose! " + computerSelection + " beats " + playerSelection;
     } else {
         resultDiv.textContent ="It's a tie! Both chose " + playerSelection;
     } 
-    scoreBoard.textContent = scorePlayer + ' - ' + scoreComp
+
+    if (playerScore.textContent == 5 || compScore.textContent == 5) {
+        
+    }
 }
 
 function computerPlay() {
