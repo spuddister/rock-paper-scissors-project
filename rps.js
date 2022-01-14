@@ -103,8 +103,8 @@ function resetGame() {
     compScore.textContent = 0;
     playerWeapon.src = 'img/q-mark.jpg';
     compWeapon.src = 'img/q-mark.jpg';
-    playerWeapon.style.backgroundColor = 'lightblue';
-    compWeapon.style.backgroundColor = 'lightblue';
+    playerWeapon.style.backgroundColor = '#f27a69';
+    compWeapon.style.backgroundColor = '#f27a69';
     compWeapon.style.transform = 'scale(1)';
     playerWeapon.style.transform = 'scale(1)';
     resultDiv.textContent = '';
