@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script src="rps.js" defer></script>
 </head>
 <body>
@@ -13,6 +14,7 @@
         <h1 class="gameHeader">Rock Paper Scissors</h1>
     </div>
     <div class="scoreboardCard">
+        <h1>First to 5 wins</h1>
         <h2>Score</h2>
         <div class="individualScoreboards">
             <div class="scorecard">
@@ -24,18 +26,35 @@
                 <p id="compScore">0</p>
             </div>
         </div>
-        <p id="result"></p>
+    </div>
+    <div class="gameCard">
+        <div class="battleCard">
+            <div class="individualScoreboards">
+                <img class="battleImages" src="img/q-mark.jpg" id="playerWeapon">
+                <img class="battleImages" src="img/q-mark.jpg" id="compWeapon">
+            </div>
+            <p id="result"></p>
+        </div>
     </div>
     <div class="gameCard">
         <div class="weapons">
             <h3>Choose your weapon...</h3>
             <div class="btnContainer">
-                <img src="img/rock.jpg" id="rock-btn" title="rock">
-                <img src="img/paper.jpg" id="paper-btn" title="paper">
-                <img src="img/scissors.jpg" id="scissors-btn" title="scissors">
+                <img class="weaponImages" src="img/rock.jpg" id="rock-btn" title="rock">
+                <img class="weaponImages" src="img/paper.jpg" id="paper-btn" title="paper">
+                <img class="weaponImages" src="img/scissors.jpg" id="scissors-btn" title="scissors">
             </div>
         </div>
     </div>
-    <footer>Copyright</footer>
+    <footer class="footer">
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          <a class="link" href="https://github.com/spuddister" target="_blank">spuddister <i class='fa fa-github'></i></a>
+        </p>
+        
+      </footer>
 </body>
 </html>

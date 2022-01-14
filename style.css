@@ -1,52 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans&display=swap');
 
 .header {
     display: flex;
     justify-content: center;
-    background-color: #696d7d;
-    color: #faf3dd;
+    background-color: #e54b4b;
+    color: #1e1e24;
     width: 100%;
-    margin-bottom: 25px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-family: 'Staatliches', cursive;
 }
 
 body {
     font-family: 'Work Sans', sans-serif;
+    color: #444140;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
     justify-content: space-between;
-    background-color: #faf3dd;
+    background-color: #f7ebe8;
     min-height: 100vh;
 }
 
 footer {
     display: flex;
     justify-content: center;
-    background-color: #696d7d;
-    color: #faf3dd;
+    background-color: #ffa987;
+    color: #1e1e24;
     width: 100%;
    
 }
 
-img {
+img, .weaponImages {
     max-width: 200px;
     height: auto;
-    background-color: lightblue;
+    background-color: #f27a69;
     border-radius: 5%;
     transition: all .07s ease;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    flex: 1;
 }
 
-img:hover {
+.weaponImages:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
 }
 
 .btnContainer {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     padding: 25px;
 }
 
@@ -56,13 +61,11 @@ img:hover {
     align-items: center;
 }
 
-h3 {
-    color: white;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+h1, h2, h3{
+    margin: 0;
 }
-
-h2{
-    margin-top: 0;
+h3 {
+    margin-top: 15px;
 }
 
 .scoreboardCard, .weapons {
@@ -80,17 +83,38 @@ h2{
 .individualScoreboards {
     display: flex;
     justify-content: space-evenly;
-    /* width: 400px; */
-
 }
 
 .scorecard {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     width: 100px;
     height: 100px;
     margin: 10px;
     border-radius: 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f27a69;
+    color: black;
+    font-size: larger;
+}
+
+.scorecard p {
+    margin: 0;
+}
+
+#result {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.battleImages {
+    width: 100px;
+    margin: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #1e1e24;
 }

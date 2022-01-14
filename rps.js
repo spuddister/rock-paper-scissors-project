@@ -2,8 +2,10 @@ let roundResult;
 // let scorePlayer = 0;
 // let scoreComp = 0;
 let resultDiv = document.getElementById('result');
-let playerScore = document.getElementById('playerScore')
-let compScore = document.getElementById('compScore')
+let playerScore = document.getElementById('playerScore');
+let compScore = document.getElementById('compScore');
+let playerWeapon = document.getElementById('playerWeapon');
+let compWeapon = document.getElementById('compWeapon');
 
 let rockBtn = document.getElementById('rock-btn').addEventListener('click', game);
 let paperBtn = document.getElementById('paper-btn').addEventListener('click', game);
@@ -14,18 +16,54 @@ function game(e) {
     let computerSelection = computerPlay();
     roundResult = playRound(playerSelection, computerSelection);
 
+    // console.log(playerSelection == 'rock')
+    // playerWeapon.src = 'img/rock.jpg';
+    // console.log(playerWeapon.src)
+
+    if (playerSelection == 'rock') {
+        playerWeapon.src = 'img/rock.jpg';
+    } else if (playerSelection == 'paper') {
+        playerWeapon.src = 'img/paper.jpg';
+    } else {
+        playerWeapon.src = 'img/scissors.jpg';
+    }
+
+    if (computerSelection == 'rock') {
+        compWeapon.src = 'img/rock.jpg';
+    } else if (computerSelection == 'paper') {
+        compWeapon.src = 'img/paper.jpg';
+    } else {
+        compWeapon.src = 'img/scissors.jpg';
+    }
+
     if (roundResult == 1) {
         playerScore.textContent -= -1;
-        resultDiv.textContent ="You win!\n" + playerSelection + " beats " + computerSelection;
+        resultDiv.textContent ="You win!\n" + capitalize(playerSelection) + " beats " + computerSelection + ".";
+        playerWeapon.style.backgroundColor = 'green';
+        compWeapon.style.backgroundColor = 'red';
+        playerWeapon.style.transform = 'scale(1.1)';
+        compWeapon.style.transform = 'scale(0.9)';
     } else if (roundResult == 0) {
         compScore.textContent -= -1;
-        resultDiv.textContent ="You lose! " + computerSelection + " beats " + playerSelection;
+        resultDiv.textContent ="You lose! " + capitalize( computerSelection) + " beats " + playerSelection + ".";
+        playerWeapon.style.backgroundColor = 'red';
+        compWeapon.style.backgroundColor = 'green';
+        compWeapon.style.transform = 'scale(1.1)';
+        playerWeapon.style.transform = 'scale(0.9)';
     } else {
-        resultDiv.textContent ="It's a tie! Both chose " + playerSelection;
+        resultDiv.textContent ="It's a tie! Both chose " + playerSelection + ".";
+        playerWeapon.style.backgroundColor = 'blue';
+        compWeapon.style.backgroundColor = 'blue';
+        playerWeapon.style.transform = 'scale(1)';
+        compWeapon.style.transform = 'scale(1)';
     } 
 
-    if (playerScore.textContent == 5 || compScore.textContent == 5) {
-        
+    if (playerScore.textContent >= 5) {
+        alert('You won!');
+        resetGame();
+    } else if (compScore.textContent >= 5) {
+        alert('You lost!');
+        resetGame();
     }
 }
 
@@ -58,4 +96,16 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return 0;
     } 
+}
+
+function resetGame() {
+    playerScore.textContent = 0;
+    compScore.textContent = 0;
+    playerWeapon.src = 'img/q-mark.jpg';
+    compWeapon.src = 'img/q-mark.jpg';
+    playerWeapon.style.backgroundColor = 'lightblue';
+    compWeapon.style.backgroundColor = 'lightblue';
+    compWeapon.style.transform = 'scale(1)';
+    playerWeapon.style.transform = 'scale(1)';
+    resultDiv.textContent = '';
 }
