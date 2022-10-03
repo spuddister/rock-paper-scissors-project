@@ -5,6 +5,6 @@ It is an implementation of the classic game rock-paper-scissors showcasing my ea
 
 [See deployment here.](https://spuddister.github.io/rock-paper-scissors/)
 
-## Icon Credit
+### Icon Credit
 
 Icons from https://icon-library.com/icon/.
